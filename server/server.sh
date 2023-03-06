@@ -5,7 +5,7 @@ PORT=5001
 
 # Stop any program currently running on the set port
 echo 'preparing port' $PORT '...'
-#fuser -k 5001/tcp
+fuser -k 5001/tcp
 
 # switch directories
 cd build/web/
