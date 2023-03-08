@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcfront-deployment
+  labels:
+    app: gcfrontapp
+spec:
+  #replicas: 1
+  selector:
+    matchLabels:
+      app: gcfrontapp
+  template:
+    metadata:
+      labels:
+        app: gcfrontapp 
+    spec:
+      containers:
+      - name: gestioncompetencefront
+        image: nadiaabdelmoula/gestioncompetencefront
+        ports:
+        - containerPort: 5001
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: gcfrontapp-service
+spec:
+  selector:
+    app: gcfrontapp 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5001
+    targetPort: 5001
+    nodePort: 31110
