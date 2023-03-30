@@ -76,15 +76,15 @@ class UserService{
   }
   Future<List<UserModel>> getListUsers(String search)async{
     List<UserModel> userList= [];
-    var url = baseUrl+"list";
+    var url = "http://localhost:8000/userList";
     final prefs = await SharedPreferences.getInstance();
-    String? token = prefs.getString("jwt-token");
+    //String? token = prefs.getString("jwt-token");
 
 
     var response = await http.get(Uri.parse(url),
     headers: <String,String>{
 
-      "Authorization":"Bearer "+token!,
+      "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODAwMDQ5MzEsImV4cCI6MTY4MDYwOTczMSwiaXNzIjoiQnFybXpkbUNTdjJyQlhzTE5Ua25PZEp4MUcwamg4OVAiLCJuYW1lIjoidXNlciJ9.dIK0W3lha5FJyXYE7Trju3HODbZ6akJTeoNYmcus8Ug",
 
     },);
 
@@ -413,14 +413,14 @@ class UserService{
   }
   Future<List<UserModel>> getListUsersByManager(String search)async{
     List<UserModel> userList= [];
-    var url = baseUrl+"list";
+    var url = "http://localhost:8000/userList";
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("jwt-token");
     String? userName =prefs.getString("user");
     var response = await http.get(Uri.parse(url),
       headers: <String,String>{
 
-        "Authorization":"Bearer "+token!,
+        "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODAwMDQ5MzEsImV4cCI6MTY4MDYwOTczMSwiaXNzIjoiQnFybXpkbUNTdjJyQlhzTE5Ua25PZEp4MUcwamg4OVAiLCJuYW1lIjoidXNlciJ9.dIK0W3lha5FJyXYE7Trju3HODbZ6akJTeoNYmcus8Ug",
 
       },);
 
