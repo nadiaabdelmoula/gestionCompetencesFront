@@ -10,7 +10,7 @@ import '../widgets/alertDialog.dart';
 class ProjetService{
   var baseUrl = "http://localhost:5000/projet/";
   Future<void> addProjet(String dure,String titre,String chef,String description,String client, BuildContext context) async {
-    var url = baseUrl+"add";
+    var url = "http://localhost:8000/addprojet -H 'Authorization: Basic cm9vdDpyb290'";
     Map<String,String> params = {
       "titre": titre,
       "etat": "regie",
@@ -42,7 +42,7 @@ class ProjetService{
   }
   Future<List<Projet>> getProjects()async{
     List<Projet> projects = [];
-    var url = "http://localhost:8000/listprojet";
+    var url = "http://localhost:8000/listprojet -H 'Authorization: Basic cm9vdDpyb290'";
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("jwt-token");
 
@@ -79,7 +79,7 @@ class ProjetService{
   }
   Future<List<Projet>> getProjectsRegie(String search)async{
     List<Projet> projects = [];
-    var url = "http://localhost:8000/listprojet";
+    var url = "http://localhost:8000/listprojet -H 'Authorization: Basic cm9vdDpyb290'";
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("jwt-token");
 
@@ -139,7 +139,7 @@ class ProjetService{
   }
   Future<List<Projet>> getProjectsForfait(String search)async{
     List<Projet> projects = [];
-    var url = "http://localhost:8000/listprojet";
+    var url = "http://localhost:8000/listprojet -H 'Authorization: Basic cm9vdDpyb290'";
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("jwt-token");
     var response = await http.get(Uri.parse(url),
@@ -197,7 +197,7 @@ class ProjetService{
   }
   Future<List<Projet>> getProjectsRegieByManager(String search)async{
     List<Projet> projects = [];
-    var url = "http://localhost:8000/listprojet";
+    var url = "http://localhost:8000/listprojet -H 'Authorization: Basic cm9vdDpyb290'";
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("jwt-token");
     String? userName =prefs.getString("user");
@@ -274,7 +274,7 @@ class ProjetService{
 
   Future<List<Projet>> getProjectsForfaitByManager(String search)async{
     List<Projet> projects = [];
-    var url = "http://localhost:8000/listprojet";
+    var url = "http://localhost:8000/listprojet -H 'Authorization: Basic cm9vdDpyb290'";
     final prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("jwt-token");
     String? userName =prefs.getString("user");
