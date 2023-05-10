@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gcfront-deployment
+  #namespace: appdep
   labels:
     app: gcfrontapp
 spec:
-  #replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: gcfrontapp
