@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gcfront-deployment
-  #namespace: appdep
+  namespace: appdep
   labels:
     app: gcfrontapp
 spec:
